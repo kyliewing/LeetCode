@@ -11,7 +11,7 @@ class Solution(object):
         for i in range(len(digit_list)-1,-1,-1):
             result+=digit_list[i]*mul
             mul*=10
-        if (result<-(1<<31) or result>(1<<31)):
+        if (result<-(1<<31) or result>(1<<31)):#overflow(assume the input is 32-bit integer)
             return 0
         if x<0:
             return -result

@@ -1,6 +1,7 @@
 #Your runtime beats 61.78% of python submissions.
 #Implement atoi to convert a string to an integer.Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.
 #Related to "Integer", need to check 32 bits overflow
+#My solution is not clean
 class Solution(object): 
     def myAtoi(self, str):
         nstr=str # Must have this line, otherwise "UnboundLocalError: local variable 'nstr' referenced before assignment"
@@ -36,4 +37,35 @@ class Solution(object):
             if (int(digit_str)>((1<<31)-1)): return (1<<31)-1
             else: return int(digit_str)
             
+
+
+#Your runtime beats 78.60% of python submissions.
+#The version that do not use RegEx:
+class Solution(object):
+    def myAtoi(self, str):
+        str=str.strip()      #Use str.strip() to elimate the blanks
+        if len(str)==0:return 0 #if str is empty, return 0
+        sign,res="",""       #Initialize sign to be an empty string
+        if str[0] in "+-":   #If str[0] is + or -, set sign to be str[0]
+            sign=str[0]
+            str=str[1:]      #New str
+        for c in str:        #Loop every char
+            if c.isdigit(): res+=c  #Append if it's digit
+            else: break
+        if len(res)==0: return 0 #Notice that if length of res is 0 after the sign, return 0
+        res=int(sign+res)    #res=sign+res
+        return max(min(res,2147483647),-2147483648) #Notice to check the overflow, and the usage of min, max
+        
+        
+#Your runtime beats 61.78% of python submissions.
+#The version that use RegEx:
+class Solution(object):
+    import re
+    def myAtoi(self, str):
+        ress=re.findall('^[\+\-]?0*\d+',str.strip()) #Use regular expression
+        return max(min(int(ress[0]),2147483647),-2147483648) if ress else 0#Notice to check overflow
+        
+        
+        
+
         

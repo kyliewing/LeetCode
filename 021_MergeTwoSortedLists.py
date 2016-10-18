@@ -2,7 +2,6 @@
 #Your runtime beats 49.72% of python submissions. (One Time AC)
 #Need to confirm ascending order or descending order
 #Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.      
-
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, x):

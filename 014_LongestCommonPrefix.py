@@ -1,3 +1,4 @@
+#Write a function to find the longest common prefix string amongst an array of strings.
 #Your runtime beats 22.45% of python submissions
 class Solution(object):
     def longestCommonPrefix(self, strs):

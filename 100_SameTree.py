@@ -9,6 +9,7 @@
 #         self.left = None
 #         self.right = None
 
+#My Recursive Version to do DFS:
 #Your runtime beats 46.75% of python submissions.
 class Solution(object):
     def isSameTree(self, p, q):

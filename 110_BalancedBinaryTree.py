@@ -9,7 +9,7 @@
 #         self.left = None
 #         self.right = None
 
-#My Recursive version, by using the helper function depth function, O(n^2).
+#My Recursive version, DFS, by using the helper function depth function, O(n^2).
 #Your runtime beats 38.31% of python submissions.(One Time AC)
 #For the current node root, calling depth() for its left and right children actually has to access all of its children, thus the complexity is O(N). We do this for each node in the tree, so the overall complexity of isBalanced will be O(N^2). This is a top down approach.
 class Solution(object):
@@ -25,7 +25,7 @@ class Solution(object):
         return self.isBalanced(root.left) and self.isBalanced(root.right) and max(self._depth(root.left),self._depth(root.right))-min(self._depth(root.left),self._depth(root.right))<=1
         
         
-#My Recursive version, by using the helper function depth function.
+#My Recursive version, DFS, by using the helper function depth function.
 #Your runtime beats 54.23% of python submissions.(One Time AC)
 class Solution(object):
     def _depth(self,root):
@@ -36,7 +36,7 @@ class Solution(object):
         return self.isBalanced(root.left) and self.isBalanced(root.right) and abs(self._depth(root.left)-self._depth(root.right))<=1
                  
         
-#My Recursive version, O(n)(Each node is visited only once).
+#My Recursive version, DFS, O(n)(Each node is visited only once).
 #Your runtime beats 92.82% of python submissions.(One Time AC)
 class Solution(object):
     def _dfsHeight(self,root):

@@ -18,5 +18,13 @@ class Solution(object):
         return numbers
                 
             
-        
+#A more concise version       
+class Solution(object):
+    def removeElement(self,nums,val):
+        dis_index=i=0
+        for i in range(len(nums)):
+            if nums[i]!=val:
+                nums[dis_index]=nums[i]
+                dis_index+=1
+        return dis_index
         

@@ -35,7 +35,12 @@ class Solution(object):
                             my_dict[board[i][j]]=board[i][j]
         return True
         
-            
+
+#List comprehension version
+class Solution(object):
+    def isValidSudoku(self,board):
+        seen=[x for i,row in enumerate(board) for j,c in enumerate(row) for x in ((i,c),(c,j),(i/3,j/3,c)) if c!='.']
+        return len(seen)==len(set(seen))          
                 
                     
         

@@ -11,3 +11,40 @@ class Solution(object):
         """
         return haystack.find(needle) #Python string's find method
         
+
+#Easy O(n*m) algorithm
+class Solution(object):
+    def strStr(self,heystack,needle):
+        for i in range(len(heystack)-len(needle)+1):
+            if heystack[i:i+len(needle)]==needle:
+                return i
+        return -1
+
+#Easy O(n*m) algorithm
+class Solution(object):
+    def strStr(self,heystack,needle):
+        for i in range(len(heystack)-len(needle)+1):
+            j=0
+            while j<len(needle):
+                if heystack[j+i]!=needle[j]:
+                    break
+                j+=1
+            if j==len(needle):
+                return i
+        return -1
+        
+#O(n+m) KMP string searching algorithm
+
+
+
+
+
+
+
+
+
+
+
+
+
+

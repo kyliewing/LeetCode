@@ -33,4 +33,17 @@ class Solution(object):
         return not stack
         
                 
-        
+  
+#A version which can track the place where cause the error
+class Solution(object):
+    def isValid(self,s):
+        my_dict={')':'(','}':'{',']':'['}
+        stack=[]
+        for c in s:
+            if stack and c in my_dict:
+                if stack.pop()!=my_dict[c]:
+                    return False
+            else:
+                stack.append(c)
+        return not stack
+                      

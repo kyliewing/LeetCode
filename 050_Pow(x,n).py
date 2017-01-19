@@ -102,5 +102,23 @@ class Solution(object):
         return res                
             
         
-        
+
+#Double x
+class Solution(object):
+    def myPow(self,x,n):
+        if n==0: return 1
+        if n<0:
+            n=-n
+            x=1/x
+        return self.myPow(x*x,n/2) if n%2==0 else x*self.myPow(x*x,n/2)
+
+#Double myPow
+class Solution(object):
+    def myPow(self,x,n):
+        if n==0: return 1
+        if n<0:
+            n=-n
+            x=1/x
+        temp=self.myPow(x,n/2)
+        return temp*temp if n%2==0 else x*temp*temp
 

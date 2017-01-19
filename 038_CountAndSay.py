@@ -29,7 +29,23 @@ class Solution(object):
                     
                 
                 
-            
+class Solution(object):
+    def countAndSay(self,n):
+        res="1"
+        for i in range(n-1):
+            cur=""
+            j=0
+            while j<len(res):
+                count=1
+                while j+1<len(res) and res[j]==res[j+1]:
+                    count+=1
+                    j+=1
+                cur=cur+str(count)+res[j]
+                j+=1
+            res=cur
+        return res
+                
+                    
             
             
         

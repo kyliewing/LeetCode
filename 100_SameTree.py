@@ -45,6 +45,19 @@ class Solution(object):
         return True
                 
         
+#BFS
+class Solution(object):
+    def isSameTree(self,p,q):
+        queue=[(p,q)]
+        while queue:
+            pp,qq=queue.pop(0)
+            if pp==None and qq==None: continue
+            if pp==None or qq==None: return False
+            if pp.val!=qq.val: return False
+            else:
+                queue.append((pp.left,qq.left))
+                queue.append((pp.right,qq.right))
+        return True
         
         
         

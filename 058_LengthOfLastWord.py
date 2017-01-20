@@ -31,3 +31,22 @@ class Solution(object):
     def lengthOfLastWord(self, s):
         return len(s.rstrip().split(' ')[-1])#Build-in function
                         
+
+
+#Build in Function version
+class Solution(object):
+    def lengthOfLastWord(self,s):
+        return len(s.strip().split(' ')[-1])
+
+#None Build in Function version
+class Solution(object):
+    def lengthOfLastWord(self,s):
+        s=s.strip()
+        count=0
+        for c in s[::-1]:
+            if c!=' ':
+                count+=1
+            else:
+                break
+        return count
+                

@@ -35,6 +35,7 @@ class Solution(object):
     def firstUniqChar(self,s):
         for c in s:
             if s.find(c)==s.rfind(c): return s.find(c) #Build in method: s.find and s.rfind
+        return -1
 
 
 

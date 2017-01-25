@@ -55,7 +55,20 @@ class Solution(object):
         return res
             
             
-        
+#O(n) Sliding Window, a more concise version
+class Solution(object):
+    def findAnagrams(self,s,p):
+        s_hash,p_hash,n,m,res=[0]*256,[0]*256,len(s),len(p),[]
+        if n<m: return res
+        for i in range(m): #Deal with p hash table and pre-loaded sliding window simultaneously
+            s_hash[ord(s[i])]+=1
+            p_hash[ord(p[i])]+=1
+        if s_hash==p_hash: res.append(0)
+        for i in range(m,n):
+            s_hash[ord(s[i])]+=1
+            s_hash[ord(s[i-m])]-=1
+            if s_hash==p_hash: res.append(i-m+1)
+        return res
         
 
 

@@ -11,7 +11,7 @@ class Solution(object):
         return -1
 
 
-#O(n) twice scans version, use array to simulate hash table
+#O(n) twice scans version, use array to simulate hash table, hash table object can not be faster than a simple array
 class Solution(object):
     def firstUniqChar(self,s):
         my_dict=[0]*26
@@ -20,13 +20,27 @@ class Solution(object):
         for i in range(len(s)):
             if my_dict[ord(s[i])-ord('a')]==1: return i
         return -1
+
         
 
 #O(n) once scan version, use two pointers
-
-
-
-
+class Solution(object):
+    def firstUniqChar(self,s):
+        n=len(s)
+        if n==0: return -1
+        if n==1: return 0
+        slow,fast=0,1
+        my_dict=[0]*26
+        my_dict[ord(s[slow])-ord('a')]+=1
+        while fast<n:
+            my_dict[ord(s[fast])-ord('a')]+=1
+            while slow<n and my_dict[ord(s[slow])-ord('a')]>1: slow+=1  #Notice slow<n #Move slow to the next unique char
+            if slow>=n: return -1 #no unique char exists
+            if my_dict[ord(s[slow])-ord('a')]==0:#not yet visited by the fast pointer
+                my_dict[ord(s[slow])-ord('a')]+=1
+                fast=slow #reset the fast pointer
+            fast+=1
+        return slow
 
 
 
@@ -37,6 +51,17 @@ class Solution(object):
             if s.find(c)==s.rfind(c): return s.find(c) #Build in method: s.find and s.rfind
         return -1
 
+
+#Python build in method + min version(TLE):
+class Solution(object):
+    def firstUniqChar(self,s):
+        return min([ s.find(c) for c in s if s.count(c)==1] or [-1])
+        
+        
+#Python build in method + min + string.ascii_lowercase:
+class Solution(object):
+    def firstUniqChar(self,s):
+        return min([s.find(c) for c in string.ascii_lowercase if s.count(c)==1] or [-1])
 
 
 

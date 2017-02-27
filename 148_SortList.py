@@ -4,7 +4,7 @@
 #         self.val = x
 #         self.next = None
 
-#Merge sort version. O(nlogn)
+#Merge sort version. O(nlogn)time, O(1)space
 class Solution(object):
     def sortList(self, head):
         #:type head: ListNode
